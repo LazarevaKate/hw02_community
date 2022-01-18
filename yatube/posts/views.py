@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
-POSTS_COUNT = 10
+P_COUNT = 10
 
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:POSTS_COUNT]
+    posts = Post.objects.order_by('-pub_date')[:P_COUNT]
     context = {
         'text': "Это главная страница проекта Yatube",
         'posts': posts,
