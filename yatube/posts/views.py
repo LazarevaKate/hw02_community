@@ -3,6 +3,7 @@ from .models import Post, Group
 
 POSTS_COUNT = 10
 
+
 def index(request):
     posts = Post.objects.order_by('-pub_date')[:POSTS_COUNT]
     context = {
@@ -11,8 +12,9 @@ def index(request):
     }
     return render(request, 'posts/index.html', context)
 
+
 def group_posts(request, slug):
-    "Здесь будет информация о группах проекта Yatube"
+    """Здесь будет информация о группах проекта Yatube"""
     group = get_object_or_404(Group, slug=slug)
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:POSTS_COUNT]
     context = {
