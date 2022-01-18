@@ -16,7 +16,7 @@ def index(request):
 def group_posts(request, slug):
     """Здесь будет информация о группах проекта Yatube"""
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:POSTS_COUNT]
+    posts = Post.objects.filter(group=group).order_by('-pub_date')[:P_COUNT]
     context = {
         'text': "Здесь будет информация о группах проекта Yatube",
         'group': group,
