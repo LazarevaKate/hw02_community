@@ -6,9 +6,9 @@ POST_COUNT = 10
 
 
 def index(request):
-    posts = Post.objects.order_by()[:POST_COUNT]
+    posts = Post.objects.all()[:POST_COUNT]
     context = {
-        'text': "Это главная страница проекта Yatube",
+        'text': 'Это главная страница проекта Yatube',
         'posts': posts,
     }
     return render(request, 'posts/index.html', context)
@@ -20,9 +20,9 @@ def index(request):
 def group_posts(request, slug):
     """Здесь будет информация о группах проекта Yatube."""
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by()[:POST_COUNT]
+    posts = group.posts.all()[:POST_COUNT]
     context = {
-        'text': "Здесь будет информация о группах проекта Yatube",
+        'text': 'Здесь будет информация о группах проекта Yatube',
         'group': group,
         'posts': posts,
     }

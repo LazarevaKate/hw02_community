@@ -14,18 +14,14 @@
     <title>{% block title %} Базовый шаблон {% endblock %}</title>
   </head>
   <body>
-    <header>
-      {% include 'includes/header.html' %}
-    </header>
+    {% include 'includes/header.html' %}
       <main>
         <div class="container py-5">
-            {% block content %}
-              "Тут будет контент"
-            {% endblock %}
+          {% block content %}
+            'content'
+          {% endblock %}
         </div>
       </main>
-      <footer>
-      {% include 'includes/footer.html' %}
-      </footer>
+    {% include 'includes/footer.html' %}
   </body>
  </html>
