@@ -13,9 +13,6 @@ def index(request):
     }
     return render(request, 'posts/index.html', context)
 
-    class Meta:
-        ordering = ['-pub_date']
-
 
 def group_posts(request, slug):
     """Здесь будет информация о группах проекта Yatube."""

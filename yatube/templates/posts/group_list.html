@@ -5,11 +5,8 @@
     <p>
       {{ group.description }}
     </p>
-
   {% for post in posts %}
-    <article>
-     {% include 'includes/post_card.html' %}
-    </article>
-  {% if not forloop.last %}<hr>{% endif %}
+    {% include 'includes/post_card.html' %}
+    {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
 {% endblock %}
